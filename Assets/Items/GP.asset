@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a6551d022f7fa42802caad7a0beedb, type: 3}
+  m_Name: GP
+  m_EditorClassIdentifier: 
+  itemName: GP
+  itemType: 3
+  itemPrefab: {fileID: 3361386884289274800, guid: 03cbcda9e803a024ba3ddde5b41c43b3, type: 3}
