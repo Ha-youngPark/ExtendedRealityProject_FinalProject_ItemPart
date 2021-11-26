@@ -19,6 +19,8 @@ public class ActionController : MonoBehaviour
     [SerializeField]
     private StatusController statusController;
 
+    private const int HEART = 0, COIN = 1, MAGNET = 2, GP = 3;
+
     void Start() {
         statusController = FindObjectOfType<StatusController>();
     }
@@ -39,14 +41,13 @@ public class ActionController : MonoBehaviour
                 CanPickUp();
             }
         }else{
-            // 아이템이 획득 불가능 할 때?
+            // 아이템이 획득 불가능 할 때
             pickupActivated = false;
         }
     }
 
     private void CanPickUp(){
         // 아이템 획득시 할 내용
-        // 점수, 생명, 자석, 무적 효과를 담당하는 함수/클래스를 만들어서 case문 안에서 호출 시키기.
         if(pickupActivated){
             if(hitInfo.transform != null){
                 string hitItemName = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName;    
@@ -81,18 +82,32 @@ public class ActionController : MonoBehaviour
     }
 
     private void getCoin(){
-        
+        // 코인 획득 시 점수 증가
+        statusController.coin++;
     }
 
     private void getHeart(){
+        // 하트 획득 시 목숨 증가
+        if(statusController.currentHeart < statusController.heart){
+            statusController.currentHeart++;
+        }else{
+            return;
+        }
         
     }
 
     private void getMagnet(){
-        
+        // 자석 획득 시 자석 효과
+        statusController.magnet = true;
+        // 플레이어와 아이템들에 리짓바디 붙이고 당김효과?
+
+
+
     }
 
     private void getGP(){
-       
+       // GP 획득 시 무적 효과
+       statusController.gp = true;
+       // 콜라이더를 비활성화 시키면 될듯.
     }
 }

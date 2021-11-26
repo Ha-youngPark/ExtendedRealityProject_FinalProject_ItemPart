@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class StatusController : MonoBehaviour
 {
     [SerializeField]
-    private int coin = 0;
-    private int heart = 3;
-    private int currentHeart;
-    private bool magnet = false;
-    private bool gp = false;
+    public int coin = 0;
+    public int heart = 3;
+    public int currentHeart;
+    public bool magnet = false;
+    public bool gp = false;
+    public int currentMagnetTime; 
+    public int currentGPTime;
 
     private const int MAGNETTIME = 30, GPTIME = 30; // 자석 효과, 무적 지속 시간
 
