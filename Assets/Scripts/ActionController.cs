@@ -38,7 +38,6 @@ public class ActionController : MonoBehaviour
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, range, layerMask)){
             if(hitInfo.transform.tag == "Item"){
                 pickupActivated = true;
-                CanPickUp();
             }
         }else{
             // 아이템이 획득 불가능 할 때
@@ -84,6 +83,7 @@ public class ActionController : MonoBehaviour
     private void getCoin(){
         // 코인 획득 시 점수 증가
         statusController.coin++;
+        Debug.Log(statusController.coin);
     }
 
     private void getHeart(){
@@ -98,8 +98,7 @@ public class ActionController : MonoBehaviour
 
     private void getMagnet(){
         // 자석 획득 시 자석 효과
-        statusController.magnet = true;
-        // 플레이어와 아이템들에 리짓바디 붙이고 당김효과?
+        statusController.currentMagnetTime = 10;
 
 
 
@@ -107,7 +106,7 @@ public class ActionController : MonoBehaviour
 
     private void getGP(){
        // GP 획득 시 무적 효과
-       statusController.gp = true;
        // 콜라이더를 비활성화 시키면 될듯.
+       statusController.currentGPTime = 10;
     }
 }
