@@ -109,4 +109,5 @@ public class ActionController : MonoBehaviour
        // 콜라이더를 비활성화 시키면 될듯.
        statusController.currentGPTime = 10;
     }
+
 }

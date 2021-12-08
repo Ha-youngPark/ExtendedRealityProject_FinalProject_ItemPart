@@ -32,6 +32,7 @@ public class StatusController : MonoBehaviour
         // 충돌 시 목숨 값 감소, 아이템 시간 감소는 여기서 함수 하나 만들어서 처리 하기.
 
         decreaseMagnetTime();
+        decreaseGPTime();
     }
 
     private void decreaseMagnetTime(){
@@ -40,4 +41,17 @@ public class StatusController : MonoBehaviour
             Debug.Log("자석 시간: " + currentMagnetTime);
         }
     }
+
+    private void decreaseGPTime(){
+        if(currentGPTime > 0){
+            currentGPTime -= 1 * Time.deltaTime;
+            Debug.Log("무적 시간: " + currentGPTime);
+        }
+
+        if(currentGPTime < 0) {
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacle"), false);
+        }
+    }
+
+
 }

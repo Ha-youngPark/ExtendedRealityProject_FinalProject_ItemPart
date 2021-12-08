@@ -10,12 +10,14 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody myRigid;
 
-
+    [SerializeField]
+    private StatusController statusController;
      
     // Start is called before the first frame update
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
+        statusController = FindObjectOfType<StatusController>();
     }
 
     // Update is called once per frame
@@ -36,5 +38,14 @@ public class PlayerController : MonoBehaviour
         
 
 
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if(statusController.currentGPTime > 0){
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacle"), true);
+            
+         }
+
+         
     }
 }
