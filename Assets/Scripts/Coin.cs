@@ -25,7 +25,7 @@ public class Coin : MonoBehaviour
 
         //자석 유효 시
         if(statusController.currentMagnetTime > 0){
-            player.GetComponent<Rigidbody>().isKinematic = true;
+            // player.GetComponent<Rigidbody>().isKinematic = true;
             if(distance < 6){
                 Vector3 dir = player.transform.position - transform.position;
                 transform.Translate(dir.normalized * statusController.itemMoveSpeed * Time.deltaTime, Space.World);

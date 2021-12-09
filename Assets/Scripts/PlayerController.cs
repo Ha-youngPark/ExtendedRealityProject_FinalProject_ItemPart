@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     private void Move(){
@@ -45,7 +47,6 @@ public class PlayerController : MonoBehaviour
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Obstacle"), true);
             
          }
-
          
     }
 }
